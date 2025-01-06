@@ -5,6 +5,7 @@ use loco_rs::{
     boot::{create_app, BootResult, StartMode},
     controller::AppRoutes,
     environment::Environment,
+    storage::{self, Storage},
     task::Tasks,
     Result,
 };
@@ -36,10 +37,17 @@ impl Hooks for App {
         Ok(vec![])
     }
 
+    async fn after_context(ctx: AppContext) -> Result<AppContext> {
+        Ok(AppContext {
+            storage: Storage::single(storage::drivers::local::new()).into(),
+            ..ctx
+        })
+    }
+
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
             .add_route(controllers::callback::routes())
-            .add_route(controllers::linebot::routes())
+            .add_route(controllers::message::routes())
             .add_route(controllers::guide::routes())
             .add_route(controllers::home::routes())
     }

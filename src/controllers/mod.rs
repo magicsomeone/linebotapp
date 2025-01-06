@@ -1,5 +1,5 @@
 pub mod home;
 
 pub mod guide;
-pub mod linebot;
+pub mod message;
 pub mod callback;

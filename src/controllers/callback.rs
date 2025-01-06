@@ -26,7 +26,7 @@ pub async fn index(
 
     let _client = LineClient::new(&_client_token);
     let _txt_message = LineMessageText::new(&_payload.message.unwrap_or(String::from("empty message")));
-    let _img_message = LineMessageImage::new(original_content_url, preview_image_url);
+    // let _img_message = LineMessageImage::new(original_content_url, preview_image_url);
     let mut _messages: Vec<Value> = vec![json!(_txt_message)];
     let _request = LineApiMessagePushRequest {
         to: String::from(&_payload.to.unwrap_or(String::from("U4bc597171ccc6ec6c99753a7d98e11e3"))),
