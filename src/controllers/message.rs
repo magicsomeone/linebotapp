@@ -34,7 +34,7 @@ pub async fn text(
     State(_ctx): State<AppContext>,
     Json(_payload): Json<TextPayload>,
 ) -> Result<Response> {
-    let _client_token: String = String::from("/2yGUAc0oJBowI4zIbF0JkykVuXrCKsFGW7VtnK276kQ+dhdtX1A8fgn1pxX/zZflM+Q2fXhMTI8d8wS+7LpwvcQpxTSYG9SeOHaa8roCWhnpmB8ZPxz/V/cy7rFsad7mQeLzjGUuz5iNTE5dxTx6gdB04t89/1O/w1cDnyilFU=");
+    let _client_token: String = String::from("apuSslKv5D4+2HL3CFzxkxBtJj4VqItj1c4JAKGPy4hwZ9cWnPJLkXXCJQ4Yz/S+zTAoJbnm00Ut5zmkE+VxmSsDYy8/NXvMyKQC7ipLmSwX3zarnXl6GTkHveby29mpKR6bo3W1k+vX5Fl3fDGxPgdB04t89/1O/w1cDnyilFU=");
     let _client = LineClient::new(&_client_token);
     let mut _messages: Vec<Value> = vec![json!(_payload.line_message_text)];
     let _request = LineApiMessagePushRequest {
